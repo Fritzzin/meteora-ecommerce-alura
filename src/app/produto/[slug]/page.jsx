@@ -3,7 +3,7 @@ import Produto from "@/app/components/Produto";
 
 
 async function fetchProdutoPorSlug(slug) {
-  const response = await fetch(`https://api.npoint.io/80ec40099198860541ff/produtos/${slug}`)
+  const response = await fetch(`https://api.npoint.io/ae7156a63741041f5ce1/${slug}`)
   if (!response) {
     throw new Error("nao foi possivel carregar dados");
   }
@@ -23,9 +23,9 @@ export default async function ProdutoPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  const res = await fetch(`https://api.npoint.io/80ec40099198860541ff`);
+  const res = await fetch(`https://api.npoint.io/ae7156a63741041f5ce1`);
 
-  const {produtos} = await res.json();
+  const produtos = await res.json();
 
   return produtos.map((produto) => ({ slug: produto.id.toString() }))
 }
