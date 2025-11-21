@@ -27,5 +27,5 @@ export async function generateStaticParams() {
 
   const produtos = await res.json();
 
-  return produtos.map((produto) => ({ slug: produto.id.toString() }))
+  return produtos.map((produto) => ({ slug: (produto.id - 1).toString() }))
 }
